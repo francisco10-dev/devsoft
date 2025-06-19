@@ -7,8 +7,8 @@ const Footer: React.FC = () => {
         <div className="footer-grid">
           <div className="footer-about">
             <div className="logo">
-              <span className="logo-primary">Dev</span>
-              <span className="logo-secondary">Solutions</span>
+              <span className="logo-primary">3o</span>
+              <span className="logo-secondary">Digital</span>
             </div>
             <p>Impulsamos negocios con soluciones tecnológicas innovadoras y de alto impacto.</p>
             <div className="social-links">
@@ -44,15 +44,15 @@ const Footer: React.FC = () => {
           <div className="footer-contact">
             <h3>Contacto</h3>
             <ul>
-              <li><i className="fas fa-map-marker-alt"></i> Av. Tecnológica 123, Ciudad Digital</li>
-              <li><i className="fas fa-phone"></i> +1 (123) 456-7890</li>
-              <li><i className="fas fa-envelope"></i> info@devsolutions.com</li>
+              <li><i className="fas fa-map-marker-alt"></i> Escazú, San José, Costa Rica.</li>
+              <li><i className="fas fa-phone"></i> +506 6469 - 4072</li>
+              <li><i className="fas fa-envelope"></i> info3o@gmail.com</li>
             </ul>
           </div>
         </div>
         
         <div className="footer-bottom">
-          <p>&copy; {new Date().getFullYear()} DevSolutions. Todos los derechos reservados.</p>
+          <p>&copy; {new Date().getFullYear()} 3oDigital. Todos los derechos reservados.</p>
           <div className="legal-links">
             <a href="#">Términos de servicio</a>
             <a href="#">Política de privacidad</a>

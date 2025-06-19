@@ -5,8 +5,8 @@ const Header: React.FC = () => {
     <header className="header">
       <div className="container">
         <div className="logo">
-          <span className="logo-primary">Dev</span>
-          <span className="logo-secondary">Solutions</span>
+          <span className="logo-primary">3o</span>
+          <span className="logo-secondary">Digital</span>
         </div>
         <nav className="nav">
           <ul>
