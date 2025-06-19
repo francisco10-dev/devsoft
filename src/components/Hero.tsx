@@ -12,8 +12,8 @@ const Hero: React.FC = () => {
             <button className="btn btn-secondary">Saber más</button>
           </div>
         </div>
-        <div className="hero-image">
-           <img src="src\assets\img\image1.png" alt="Desarrollo de software" />
+        <div className="hero-imag">
+           <img src="/public/logo3o.png" alt="Desarrollo de software" />
         </div>
       </div>
     </section>

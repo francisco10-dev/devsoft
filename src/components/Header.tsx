@@ -16,7 +16,7 @@ const Header: React.FC = () => {
             <li><a href="#contact">Contacto</a></li>
           </ul>
         </nav>
-        <button className="btn btn-outline">Contactar</button>
+        <button className="btn btn-secondary">Contactar</button>
       </div>
     </header>
   )

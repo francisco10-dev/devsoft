@@ -44,9 +44,9 @@ const Footer: React.FC = () => {
           <div className="footer-contact">
             <h3>Contacto</h3>
             <ul>
-              <li><i className="fas fa-map-marker-alt"></i> Escazú, San José, Costa Rica.</li>
-              <li><i className="fas fa-phone"></i> +506 6469 - 4072</li>
-              <li><i className="fas fa-envelope"></i> info3o@gmail.com</li>
+              <li><i className="fas fa-map-marker-alt"></i>Escazú, San José, Costa Rica.</li>
+              <li><i className="fas fa-phone"></i>+506 6469 - 4072</li>
+              <li><i className="fas fa-envelope"></i>info3o@gmail.com</li>
             </ul>
           </div>
         </div>
