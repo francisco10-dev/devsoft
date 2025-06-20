@@ -26,7 +26,7 @@ const Testimonials: React.FC = () => {
     <section className="testimonials">
       <div className="container">
         <h2 className="section-title">Lo que dicen nuestros clientes</h2>
-        <p className="section-subtitle">Testimonios de empresas que han confiado en nosotros</p>
+        <p className="section-subtitle">Testimonios de clientes que han confiado en nosotros</p>
         
         <div className="testimonials-grid">
           {testimonials.map((testimonial, index) => (

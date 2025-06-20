@@ -16,21 +16,6 @@ const Services: React.FC = () => {
       title: 'Software a Medida',
       description: 'Soluciones personalizadas diseñadas específicamente para tus necesidades empresariales.',
       icon: '🛠️'
-    },
-    {
-      title: 'Consultoría TI',
-      description: 'Asesoramiento experto para optimizar tus procesos tecnológicos y aumentar la eficiencia.',
-      icon: '📊'
-    },
-    {
-      title: 'Cloud Computing',
-      description: 'Implementación y migración a la nube para mayor flexibilidad y escalabilidad.',
-      icon: '☁️'
-    },
-    {
-      title: 'Mantenimiento',
-      description: 'Soporte continuo y actualizaciones para mantener tu software en óptimas condiciones.',
-      icon: '🔧'
     }
   ]
 

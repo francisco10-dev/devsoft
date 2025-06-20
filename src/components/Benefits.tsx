@@ -4,7 +4,7 @@ const Benefits: React.FC = () => {
   const benefits = [
     {
       title: 'Experiencia técnica',
-      description: 'Equipo de desarrolladores altamente cualificados con años de experiencia en el sector.'
+      description: 'Equipo de desarrolladores altamente cualificados con experiencia en el sector.'
     },
     {
       title: 'Metodologías ágiles',
@@ -25,7 +25,7 @@ const Benefits: React.FC = () => {
       <div className="container">
         <div className="benefits-content">
           <h2 className="section-title">¿Por qué elegirnos?</h2>
-          <p className="section-subtitle">Ventajas de trabajar con nuestro equipo de expertos</p>
+          <p className="section-subtitle">Ventajas de trabajar con nosotros.</p>
           
           <div className="benefits-list">
             {benefits.map((benefit, index) => (

@@ -46,6 +46,22 @@ ul {
   padding: 0 var(--space-md);
 }
 
+.contact-form-container {
+  background-color: #f8fafc;;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: var(--space-md);
+  padding: 15px;
+}
+.map-iframe {
+  border-radius: 10px;
+}
+.map {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 section {
   padding: var(--space-xxl) 0;
 }

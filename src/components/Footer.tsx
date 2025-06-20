@@ -1,5 +1,6 @@
 import React from 'react'
-
+import { FaFacebook, FaInstagram } from "react-icons/fa";
+import { FaLinkedin, FaTwitter, FaGithub, FaWhatsapp } from "react-icons/fa";
 const Footer: React.FC = () => {
   return (
     <footer className="footer">
@@ -12,10 +13,9 @@ const Footer: React.FC = () => {
             </div>
             <p>Impulsamos negocios con soluciones tecnológicas innovadoras y de alto impacto.</p>
             <div className="social-links">
-              <a href="#"><i className="fab fa-linkedin"></i></a>
-              <a href="#"><i className="fab fa-twitter"></i></a>
-              <a href="#"><i className="fab fa-github"></i></a>
-              <a href="#"><i className="fab fa-instagram"></i></a>
+              <a href="https://www.instagram.com/3odigital?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="><FaInstagram/></a>
+              <a href="https://wa.me/50664694072"><FaWhatsapp/></a>
+              <a href="#"><FaFacebook/></a>
             </div>
           </div>
           
@@ -25,8 +25,6 @@ const Footer: React.FC = () => {
               <li><a href="#">Desarrollo Web</a></li>
               <li><a href="#">Aplicaciones Móviles</a></li>
               <li><a href="#">Software a Medida</a></li>
-              <li><a href="#">Consultoría TI</a></li>
-              <li><a href="#">Cloud Computing</a></li>
             </ul>
           </div>
           
@@ -37,7 +35,6 @@ const Footer: React.FC = () => {
               <li><a href="#">Equipo</a></li>
               <li><a href="#">Casos de estudio</a></li>
               <li><a href="#">Blog</a></li>
-              <li><a href="#">Carreras</a></li>
             </ul>
           </div>
           
