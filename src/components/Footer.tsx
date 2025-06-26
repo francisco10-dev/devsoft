@@ -71,9 +71,9 @@ const Footer: React.FC = () => {
               <li>
                 <i className="fas fa-phone"></i>+506 6469 - 4072
               </li>
-              <li>
+              {/*<li>
                 <i className="fas fa-envelope"></i>info3o@gmail.com
-              </li>
+              </li> */}
             </ul>
           </div>
         </div>
