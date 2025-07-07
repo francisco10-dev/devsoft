@@ -22,7 +22,7 @@ const Footer: React.FC = () => {
               <a href="https://wa.me/50664694072">
                 <FaWhatsapp />
               </a>
-              <a href="#">
+              <a href="https://www.facebook.com/share/19geYJbWwU/?mibextid=wwXIfr">
                 <FaFacebook />
               </a>
             </div>
