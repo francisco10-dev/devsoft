@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { sendEmail } from "../service/email/email";
 
 const ContactForm: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -8,6 +9,12 @@ const ContactForm: React.FC = () => {
     message: "",
     service: "",
   });
+
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<{
+    success?: boolean;
+    message?: string;
+  }>({});
 
   const handleChange = (
     e: React.ChangeEvent<
@@ -21,20 +28,44 @@ const ContactForm: React.FC = () => {
     }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Aquí iría la lógica para enviar el formulario
-    console.log("Formulario enviado:", formData);
-    alert(
-      "Gracias por contactarnos. Nos pondremos en contacto contigo pronto."
-    );
-    setFormData({
-      name: "",
-      email: "",
-      phone: "",
-      message: "",
-      service: "",
-    });
+    setIsSubmitting(true);
+    setSubmitStatus({});
+
+    try {
+      const result = await sendEmail(formData);
+
+      if (result.success) {
+        localStorage.setItem("contactFormSubmitted", "true");
+        setSubmitStatus({
+          success: true,
+          message:
+            "Gracias por contactarnos. Nos pondremos en contacto contigo pronto.",
+        });
+        setFormData({
+          name: "",
+          email: "",
+          phone: "",
+          message: "",
+          service: "",
+        });
+      } else {
+        setSubmitStatus({
+          success: false,
+          message:
+            result.error ||
+            "Error al enviar el mensaje. Por favor intenta nuevamente.",
+        });
+      }
+    } catch (error) {
+      setSubmitStatus({
+        success: false,
+        message: "Ocurrió un error inesperado. Por favor intenta más tarde.",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -47,73 +78,91 @@ const ContactForm: React.FC = () => {
               Estamos listos para convertir tus ideas en realidad
             </p>
 
-            <form onSubmit={handleSubmit} className="contact-form">
-              <div className="form-group">
-                <input
-                  type="text"
-                  name="name"
-                  value={formData.name}
-                  onChange={handleChange}
-                  placeholder="Nombre completo"
-                  required
-                />
+            {submitStatus.message && (
+              <div
+                className={`alert ${
+                  submitStatus.success ? "alert-success" : "alert-error"
+                }`}
+              >
+                {submitStatus.message}
               </div>
+            )}
 
-              <div className="form-row">
+            {!submitStatus.success && (
+              <form onSubmit={handleSubmit} className="contact-form">
                 <div className="form-group">
                   <input
-                    type="email"
-                    name="email"
-                    value={formData.email}
+                    type="text"
+                    name="name"
+                    value={formData.name}
                     onChange={handleChange}
-                    placeholder="Correo electrónico"
+                    placeholder="Nombre completo"
                     required
+                    disabled={isSubmitting}
                   />
+                </div>
+
+                <div className="form-row">
+                  <div className="form-group">
+                    <input
+                      type="email"
+                      name="email"
+                      value={formData.email}
+                      onChange={handleChange}
+                      placeholder="Correo electrónico"
+                      required
+                      disabled={isSubmitting}
+                    />
+                  </div>
+
+                  <div className="form-group">
+                    <input
+                      type="tel"
+                      name="phone"
+                      value={formData.phone}
+                      onChange={handleChange}
+                      placeholder="Teléfono"
+                      disabled={isSubmitting}
+                    />
+                  </div>
                 </div>
 
                 <div className="form-group">
-                  <input
-                    type="tel"
-                    name="phone"
-                    value={formData.phone}
+                  <select
+                    name="service"
+                    value={formData.service}
                     onChange={handleChange}
-                    placeholder="Teléfono"
-                  />
+                    required
+                    disabled={isSubmitting}
+                  >
+                    <option value="">Selecciona un servicio</option>
+                    <option value="web">Desarrollo Web</option>
+                    <option value="mobile">Aplicaciones Móviles</option>
+                    <option value="custom">Software a Medida</option>
+                  </select>
                 </div>
-              </div>
 
-              <div className="form-group">
-                <select
-                  name="service"
-                  value={formData.service}
-                  onChange={handleChange}
-                  required
+                <div className="form-group">
+                  <textarea
+                    name="message"
+                    value={formData.message}
+                    onChange={handleChange}
+                    placeholder="Cuéntanos sobre tu proyecto"
+                    rows={5}
+                    required
+                    disabled={isSubmitting}
+                  ></textarea>
+                </div>
+
+                <button
+                  type="submit"
+                  className="btn btn-primary"
+                  disabled={isSubmitting}
                 >
-                  <option value="">Selecciona un servicio</option>
-                  <option value="web">Desarrollo Web</option>
-                  <option value="mobile">Aplicaciones Móviles</option>
-                  <option value="custom">Software a Medida</option>
-                  <option value="consulting">Consultoría TI</option>
-                  <option value="cloud">Cloud Computing</option>
-                  <option value="maintenance">Mantenimiento</option>
-                </select>
-              </div>
-
-              <div className="form-group">
-                <textarea
-                  name="message"
-                  value={formData.message}
-                  onChange={handleChange}
-                  placeholder="Cuéntanos sobre tu proyecto"
-                  rows={5}
-                  required
-                ></textarea>
-              </div>
-
-              <button type="submit" className="btn btn-primary">
-                Enviar mensaje
-              </button>
-            </form>
+                  {isSubmitting ? "Enviando..." : "Enviar mensaje"}
+                </button>
+              </form>
+            )}
           </div>
         </div>
       </section>

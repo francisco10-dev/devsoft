@@ -8,8 +8,8 @@ const Hero: React.FC = () => {
           <h1 className="hero-title">Impulsamos tu negocio con soluciones tecnológicas a medida</h1>
           <p className="hero-subtitle">Desarrollo de software personalizado que se adapta a tus necesidades y escala con tu empresa.</p>
           <div className="hero-cta">
-            <button className="btn btn-primary">Comenzar proyecto</button>
-            <button className="btn btn-secondary">Saber más</button>
+            <a href="#contact" className="btn btn-primary">Comenzar proyecto</a>
+           {/**<button className="btn btn-secondary">Saber más</button> */} 
           </div>
         </div>
         <div className="hero-imag">
